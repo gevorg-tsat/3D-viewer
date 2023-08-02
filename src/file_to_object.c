@@ -2,8 +2,8 @@
 #define LINE_MAX_SIZE 512
 
 void right_trim(char *str) {
-    for (int i = strlen(str)-1; i >=0 && strchr(" \n\r", str[i]); i--)
-        str[i] = '\0';
+  for (int i = strlen(str) - 1; i >= 0 && strchr(" \n\r", str[i]); i--)
+    str[i] = '\0';
 }
 
 int parse_file(char *filename, file_data *obj) {
@@ -50,13 +50,13 @@ void count_FV(FILE *file, file_data *obj) {
     if (buff[0] == 'v' && buff[1] == ' ')
       (obj->vertices_count) += 3;
     else if (buff[0] == 'f' && buff[1] == ' ') {
-        right_trim(buff);
-        // puts(buff);
-        unsigned cnt = count_vert(buff);
-        if (cnt == 3)
-            obj->triangle_cnt += 1;
-        else if (cnt == 4)
-            obj->square_cnt += 1;
+      right_trim(buff);
+      // puts(buff);
+      unsigned cnt = count_vert(buff);
+      if (cnt == 3)
+        obj->triangle_cnt += 1;
+      else if (cnt == 4)
+        obj->square_cnt += 1;
     }
   }
 }
@@ -71,44 +71,43 @@ int add_vertices(char *s, file_data *obj, unsigned index) {
   obj->vertices[index + 2] = z;
   return 0;
 }
-unsigned count_vert(char * arg) { 
-    right_trim(arg);
-    int vert_num;
-    unsigned cnt = 0;
-    arg = strtok(arg, " ");
-    int arg_cnt = 0;
-    while ((arg = strtok(NULL, " ")) != NULL) {
-        arg_cnt = sscanf(arg, "%d", &vert_num);
-        if (!arg_cnt) return -1;
-        cnt++;
-    }
-    
-    // cnt--;
-    return cnt;
+unsigned count_vert(char *arg) {
+  right_trim(arg);
+  int vert_num;
+  unsigned cnt = 0;
+  arg = strtok(arg, " ");
+  int arg_cnt = 0;
+  while ((arg = strtok(NULL, " ")) != NULL) {
+    arg_cnt = sscanf(arg, "%d", &vert_num);
+    if (!arg_cnt) return -1;
+    cnt++;
+  }
+
+  // cnt--;
+  return cnt;
 }
 
-int add_facets(char *s, file_data *obj, unsigned *triangle_ind, unsigned *square_ind) {
+int add_facets(char *s, file_data *obj, unsigned *triangle_ind,
+               unsigned *square_ind) {
   char temp[LINE_MAX_SIZE];
   strcpy(temp, s);
   unsigned cnt = count_vert(temp);
   char *arg = strtok(s, " ");
-//   if (cnt == -1)
-//     puts(temp);
-  
+  //   if (cnt == -1)
+  //     puts(temp);
+
   unsigned *dest;
   unsigned *index;
   if (cnt == 3) {
     dest = obj->facets_coor_triangle;
     index = triangle_ind;
-  }
-  else if (cnt == 4){
+  } else if (cnt == 4) {
     dest = obj->facets_coor_square;
-    index = square_ind; 
-  }
-  else 
+    index = square_ind;
+  } else
     cnt = 0;
   int vert_num;
-  
+
   for (int i = 0; i < cnt; i++) {
     arg = strtok(NULL, " ");
     int arg_cnt = sscanf(arg, "%d", &vert_num);

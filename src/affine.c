@@ -2,7 +2,6 @@
 
 #include <math.h>
 
-
 void translate_ox_object(file_data *obj, double shift) {
   for (size_t i = 0; i < obj->vertices_count; i += 3) obj->vertices[i] += shift;
 }
@@ -16,7 +15,7 @@ void translate_oz_object(file_data *obj, double shift) {
 }
 
 void rotate_ox_object(file_data *obj, double angle) {
-  for (size_t i = 0; i < obj->vertices_count; i += 3){
+  for (size_t i = 0; i < obj->vertices_count; i += 3) {
     double y = obj->vertices[i + 1];
     double z = obj->vertices[i + 2];
     obj->vertices[i + 1] = y * cos(angle) - z * sin(angle);

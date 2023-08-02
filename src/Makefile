@@ -35,9 +35,9 @@ run: install
 	build/Viewer.app/Contents/MacOS/./Viewer
 
 beautify:
-	clang-format -i *.c *.h tests/*.c --style=Google
+	clang-format -i *.c *.h --style=Google
 style:
-	clang-format -n *.c *.h tests/*.c --style=Google
+	clang-format -n *.c *.h --style=Google
 dvi:
 	doxygen ./Doxyfile
 	open html/index.html
