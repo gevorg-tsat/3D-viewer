@@ -1,11 +1,23 @@
 #include "file_to_object.h"
 #define LINE_MAX_SIZE 512
 
+/**
+ * @brief deletes whitespaces
+ *
+ * @param str
+ */
 void right_trim(char *str) {
   for (int i = strlen(str) - 1; i >= 0 && strchr(" \n\r", str[i]); i--)
     str[i] = '\0';
 }
-
+/**
+ * @brief adds coordinates of vertice into file_data-object
+ *
+ * @param s string from .obj file which starts with "v"
+ * @param obj
+ * @param index
+ * @return 1 if error, else 0
+ */
 int add_vertices(char *s, file_data *obj, unsigned index) {
   char flag_skip;
   double x, y, z;
@@ -16,6 +28,12 @@ int add_vertices(char *s, file_data *obj, unsigned index) {
   obj->vertices[index + 2] = z;
   return 0;
 }
+/**
+ * @brief counts amount of vertices in facet
+ *
+ * @param arg string from .obj file which starts with "f"
+ * @return unsigned
+ */
 unsigned count_vert(char *arg) {
   right_trim(arg);
   int vert_num;
@@ -31,7 +49,15 @@ unsigned count_vert(char *arg) {
   // cnt--;
   return cnt;
 }
-
+/**
+ * @brief adds facet-data into file_data-object
+ *
+ * @param s string from .obj file which starts with "f"
+ * @param obj
+ * @param triangle_ind
+ * @param square_ind
+ * @return int
+ */
 int add_facets(char *s, file_data *obj, unsigned *triangle_ind,
                unsigned *square_ind) {
   char temp[LINE_MAX_SIZE];
@@ -68,7 +94,12 @@ void clear_obj(file_data *obj) {
   free(obj->vertices);
   free(obj->facets_coor_square);
 }
-
+/**
+ * @brief counts amount of facets and vertices in .obj-file
+ *
+ * @param file
+ * @param obj
+ */
 void count_FV(FILE *file, file_data *obj) {
   obj->vertices_count = 0;
   obj->triangle_cnt = 0;
