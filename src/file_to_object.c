@@ -6,28 +6,6 @@ void right_trim(char *str) {
     str[i] = '\0';
 }
 
-void count_FV(FILE *file, file_data *obj) {
-  obj->vertices_count = 0;
-  obj->triangle_cnt = 0;
-  obj->square_cnt = 0;
-  fseek(file, 0, SEEK_SET);
-  char buff[LINE_MAX_SIZE];
-  while (!feof(file)) {
-    fgets(buff, LINE_MAX_SIZE - 1, file);
-    if (buff[0] == 'v' && buff[1] == ' ')
-      (obj->vertices_count) += 3;
-    else if (buff[0] == 'f' && buff[1] == ' ') {
-      right_trim(buff);
-      // puts(buff);
-      unsigned cnt = count_vert(buff);
-      if (cnt == 3)
-        obj->triangle_cnt += 1;
-      else if (cnt == 4)
-        obj->square_cnt += 1;
-    }
-  }
-}
-
 int add_vertices(char *s, file_data *obj, unsigned index) {
   char flag_skip;
   double x, y, z;
@@ -89,6 +67,28 @@ void clear_obj(file_data *obj) {
   free(obj->facets_coor_triangle);
   free(obj->vertices);
   free(obj->facets_coor_square);
+}
+
+void count_FV(FILE *file, file_data *obj) {
+  obj->vertices_count = 0;
+  obj->triangle_cnt = 0;
+  obj->square_cnt = 0;
+  fseek(file, 0, SEEK_SET);
+  char buff[LINE_MAX_SIZE];
+  while (!feof(file)) {
+    fgets(buff, LINE_MAX_SIZE - 1, file);
+    if (buff[0] == 'v' && buff[1] == ' ')
+      (obj->vertices_count) += 3;
+    else if (buff[0] == 'f' && buff[1] == ' ') {
+      right_trim(buff);
+      // puts(buff);
+      unsigned cnt = count_vert(buff);
+      if (cnt == 3)
+        obj->triangle_cnt += 1;
+      else if (cnt == 4)
+        obj->square_cnt += 1;
+    }
+  }
 }
 
 int parse_file(char *filename, file_data *obj) {
