@@ -17,7 +17,7 @@ typedef struct file_data {
 
 /**
  * @brief Parse data from .obj-file to file_data-structure.
- * 
+ *
  * @param filename Filepath
  * @param obj Pointer to a object of structure where to store data from file
  * @return 1 if any error, else 0
@@ -26,7 +26,7 @@ int parse_file(char *filename, file_data *obj);
 
 /**
  * @brief clear data from file_data-structure object
- * 
+ *
  * @param obj Pointer to a object of structure
  */
 void clear_obj(file_data *obj);

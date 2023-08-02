@@ -6,7 +6,6 @@ void right_trim(char *str) {
     str[i] = '\0';
 }
 
-
 void count_FV(FILE *file, file_data *obj) {
   obj->vertices_count = 0;
   obj->triangle_cnt = 0;
@@ -124,7 +123,6 @@ int parse_file(char *filename, file_data *obj) {
   fclose(file);
   return 0;
 }
-
 
 // TESTING
 // int main() {
