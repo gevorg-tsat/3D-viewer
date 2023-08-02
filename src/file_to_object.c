@@ -79,7 +79,7 @@ int add_facets(char *s, file_data *obj, unsigned *triangle_ind,
     cnt = 0;
   int vert_num;
 
-  for (int i = 0; i < cnt; i++) {
+  for (unsigned i = 0; i < cnt; i++) {
     arg = strtok(NULL, " ");
     int arg_cnt = sscanf(arg, "%d", &vert_num);
     if (!arg_cnt) return -1;

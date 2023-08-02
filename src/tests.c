@@ -4,7 +4,7 @@
 #include "affine.h"
 #include "file_to_object.h"
 START_TEST(cube_pars_test) {
-  char filename[] = "cube.obj";
+  char filename[] = "obj_samples/cube.obj";
   file_data obj;
   int err = parse_file(filename, &obj);
   ck_assert_int_eq(err, 0);
@@ -23,7 +23,7 @@ START_TEST(err_test) {
 END_TEST
 
 START_TEST(affine_test) {
-  char filename[] = "cube.obj";
+  char filename[] = "obj_samples/cube.obj";
   file_data obj;
   parse_file(filename, &obj);
   double prev_value_x = obj.vertices[0], prev_value_y = obj.vertices[1],
