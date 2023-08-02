@@ -18,7 +18,7 @@ gcov_report:
 	open test_html/index.html
 
 clean:
-	rm -rf *.gc* *.o test unit_test.info test_html/ test
+	rm -rf *.gc* *.o test unit_test.info test_html/ test html/ latex/ build/
 
 uninstall: clean
 	rm -Rf build
