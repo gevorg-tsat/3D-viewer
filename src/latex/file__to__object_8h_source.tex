@@ -1,0 +1,27 @@
+\doxysection{file\+\_\+to\+\_\+object.\+h}
+\hypertarget{file__to__object_8h_source}{}\label{file__to__object_8h_source}\mbox{\hyperlink{file__to__object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARSER\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARSER\_H\_}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfile__data}{file\_data}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structfile__data_a0d5ea947cf844ac611f43fef45ea4346}{vertices\_count}};}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structfile__data_a42b1202bff0d3787b15b927076f04ebd}{triangle\_cnt}};}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structfile__data_a82ad294b37e87d4dcf3bf90a87cf4c84}{square\_cnt}};}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{unsigned}\ *\mbox{\hyperlink{structfile__data_a21bc09312eeb89506a7d247c07fdf868}{facets\_coor\_triangle}};}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{unsigned}\ *\mbox{\hyperlink{structfile__data_acf844caf076d2feb2ca2cbc0fcce3884}{facets\_coor\_square}};}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{structfile__data_a7374e0ae5c0af9c7c42f1293643c691e}{vertices}};}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{structfile__data}{file\_data}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{file__to__object_8h_a0813c5f14bd80341ae3dad1634a65b86}{parse\_file}}(\textcolor{keywordtype}{char}\ *filename,\ \mbox{\hyperlink{structfile__data}{file\_data}}\ *obj);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{file__to__object_8h_a22c1a72e41f3601048279e69327a243b}{clear\_obj}}(\mbox{\hyperlink{structfile__data}{file\_data}}\ *obj);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \ PARSER\_H\_}}
+
+\end{DoxyCode}

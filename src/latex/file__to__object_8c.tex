@@ -1,0 +1,168 @@
+\doxysection{file\+\_\+to\+\_\+object.\+c File Reference}
+\hypertarget{file__to__object_8c}{}\label{file__to__object_8c}\index{file\_to\_object.c@{file\_to\_object.c}}
+{\ttfamily \#include \"{}file\+\_\+to\+\_\+object.\+h\"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{file__to__object_8c_afff9b137f11d394618b464995fe76f99}{LINE\+\_\+\+MAX\+\_\+\+SIZE}}~512
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{file__to__object_8c_a8b3def3a4849af75d99b8022c246f764}{right\+\_\+trim}} (char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em deletes whitespaces \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__to__object_8c_a649c3f5f4647ba8e2319a347feda658a}{add\+\_\+vertices}} (char \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}obj, unsigned index)
+\begin{DoxyCompactList}\small\item\em adds coordinates of vertice into file\+\_\+data-\/object \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{file__to__object_8c_a7b005f9302c685821e5e685a064ce17f}{count\+\_\+vert}} (char \texorpdfstring{$\ast$}{*}arg)
+\begin{DoxyCompactList}\small\item\em counts amount of vertices in facet \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__to__object_8c_a9df8747755e8363646850e65c27618cb}{add\+\_\+facets}} (char \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}obj, unsigned \texorpdfstring{$\ast$}{*}triangle\+\_\+ind, unsigned \texorpdfstring{$\ast$}{*}square\+\_\+ind)
+\begin{DoxyCompactList}\small\item\em adds facet-\/data into file\+\_\+data-\/object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{file__to__object_8c_a22c1a72e41f3601048279e69327a243b}{clear\+\_\+obj}} (\mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}obj)
+\begin{DoxyCompactList}\small\item\em clear data from file\+\_\+data-\/structure object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{file__to__object_8c_a57306afc23869178d29a1738fc9cf7e0}{count\+\_\+\+FV}} (FILE \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}obj)
+\begin{DoxyCompactList}\small\item\em counts amount of facets and vertices in .obj-\/file \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{file__to__object_8c_a0813c5f14bd80341ae3dad1634a65b86}{parse\+\_\+file}} (char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}obj)
+\begin{DoxyCompactList}\small\item\em Parse data from .obj-\/file to file\+\_\+data-\/structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{file__to__object_8c_afff9b137f11d394618b464995fe76f99}\label{file__to__object_8c_afff9b137f11d394618b464995fe76f99} 
+\index{file\_to\_object.c@{file\_to\_object.c}!LINE\_MAX\_SIZE@{LINE\_MAX\_SIZE}}
+\index{LINE\_MAX\_SIZE@{LINE\_MAX\_SIZE}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{LINE\_MAX\_SIZE}{LINE\_MAX\_SIZE}}
+{\footnotesize\ttfamily \#define LINE\+\_\+\+MAX\+\_\+\+SIZE~512}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{file__to__object_8c_a9df8747755e8363646850e65c27618cb}\label{file__to__object_8c_a9df8747755e8363646850e65c27618cb} 
+\index{file\_to\_object.c@{file\_to\_object.c}!add\_facets@{add\_facets}}
+\index{add\_facets@{add\_facets}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{add\_facets()}{add\_facets()}}
+{\footnotesize\ttfamily int add\+\_\+facets (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{unsigned \texorpdfstring{$\ast$}{*}}]{triangle\+\_\+ind,  }\item[{unsigned \texorpdfstring{$\ast$}{*}}]{square\+\_\+ind }\end{DoxyParamCaption})}
+
+
+
+adds facet-\/data into file\+\_\+data-\/object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string from .obj file which starts with \"{}f\"{} \\
+\hline
+{\em obj} & \\
+\hline
+{\em triangle\+\_\+ind} & \\
+\hline
+{\em square\+\_\+ind} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{file__to__object_8c_a649c3f5f4647ba8e2319a347feda658a}\label{file__to__object_8c_a649c3f5f4647ba8e2319a347feda658a} 
+\index{file\_to\_object.c@{file\_to\_object.c}!add\_vertices@{add\_vertices}}
+\index{add\_vertices@{add\_vertices}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{add\_vertices()}{add\_vertices()}}
+{\footnotesize\ttfamily int add\+\_\+vertices (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{s,  }\item[{\mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{unsigned}]{index }\end{DoxyParamCaption})}
+
+
+
+adds coordinates of vertice into file\+\_\+data-\/object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & string from .obj file which starts with \"{}v\"{} \\
+\hline
+{\em obj} & \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if error, else 0 
+\end{DoxyReturn}
+\Hypertarget{file__to__object_8c_a22c1a72e41f3601048279e69327a243b}\label{file__to__object_8c_a22c1a72e41f3601048279e69327a243b} 
+\index{file\_to\_object.c@{file\_to\_object.c}!clear\_obj@{clear\_obj}}
+\index{clear\_obj@{clear\_obj}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{clear\_obj()}{clear\_obj()}}
+{\footnotesize\ttfamily void clear\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+
+
+clear data from file\+\_\+data-\/structure object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & Pointer to a object of structure \\
+\hline
+\end{DoxyParams}
+\Hypertarget{file__to__object_8c_a57306afc23869178d29a1738fc9cf7e0}\label{file__to__object_8c_a57306afc23869178d29a1738fc9cf7e0} 
+\index{file\_to\_object.c@{file\_to\_object.c}!count\_FV@{count\_FV}}
+\index{count\_FV@{count\_FV}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{count\_FV()}{count\_FV()}}
+{\footnotesize\ttfamily void count\+\_\+\+FV (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{file,  }\item[{\mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+
+
+counts amount of facets and vertices in .obj-\/file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \\
+\hline
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{file__to__object_8c_a7b005f9302c685821e5e685a064ce17f}\label{file__to__object_8c_a7b005f9302c685821e5e685a064ce17f} 
+\index{file\_to\_object.c@{file\_to\_object.c}!count\_vert@{count\_vert}}
+\index{count\_vert@{count\_vert}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{count\_vert()}{count\_vert()}}
+{\footnotesize\ttfamily unsigned count\+\_\+vert (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+
+
+counts amount of vertices in facet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & string from .obj file which starts with \"{}f\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+unsigned 
+\end{DoxyReturn}
+\Hypertarget{file__to__object_8c_a0813c5f14bd80341ae3dad1634a65b86}\label{file__to__object_8c_a0813c5f14bd80341ae3dad1634a65b86} 
+\index{file\_to\_object.c@{file\_to\_object.c}!parse\_file@{parse\_file}}
+\index{parse\_file@{parse\_file}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{parse\_file()}{parse\_file()}}
+{\footnotesize\ttfamily int parse\+\_\+file (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{\mbox{\hyperlink{structfile__data}{file\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+
+
+Parse data from .obj-\/file to file\+\_\+data-\/structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filepath \\
+\hline
+{\em obj} & Pointer to a object of structure where to store data from file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if any error, else 0 
+\end{DoxyReturn}
+\Hypertarget{file__to__object_8c_a8b3def3a4849af75d99b8022c246f764}\label{file__to__object_8c_a8b3def3a4849af75d99b8022c246f764} 
+\index{file\_to\_object.c@{file\_to\_object.c}!right\_trim@{right\_trim}}
+\index{right\_trim@{right\_trim}!file\_to\_object.c@{file\_to\_object.c}}
+\doxysubsubsection{\texorpdfstring{right\_trim()}{right\_trim()}}
+{\footnotesize\ttfamily void right\+\_\+trim (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+
+
+deletes whitespaces 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
