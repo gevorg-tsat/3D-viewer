@@ -6,38 +6,6 @@ void right_trim(char *str) {
     str[i] = '\0';
 }
 
-int parse_file(char *filename, file_data *obj) {
-  FILE *file = fopen(filename, "r");
-  if (!file) {
-    return 1;
-  }
-  count_FV(file, obj);
-  fseek(file, 0, SEEK_SET);
-  char buff[LINE_MAX_SIZE];
-  unsigned vert_ind = 0, triangle_ind = 0, square_ind = 0;
-  obj->vertices = calloc(obj->vertices_count, sizeof(double));
-  obj->facets_coor_square = calloc(obj->square_cnt * 4, sizeof(unsigned));
-  obj->facets_coor_triangle = calloc((obj->triangle_cnt) * 3, sizeof(unsigned));
-  while (!feof(file)) {
-    fgets(buff, LINE_MAX_SIZE - 1, file);
-    right_trim(buff);
-    if (buff[0] == 'v' && buff[1] == ' ') {
-      int error = add_vertices(buff, obj, vert_ind);
-      if (error) {
-        free(obj->vertices);
-        free(obj->facets_coor_triangle);
-        free(obj->facets_coor_square);
-        fclose(file);
-        return 1;
-      }
-      vert_ind += 3;
-    } else if (buff[0] == 'f' && buff[1] == ' ') {
-      add_facets(buff, obj, &triangle_ind, &square_ind);
-    }
-  }
-  fclose(file);
-  return 0;
-}
 
 void count_FV(FILE *file, file_data *obj) {
   obj->vertices_count = 0;
@@ -123,6 +91,41 @@ void clear_obj(file_data *obj) {
   free(obj->vertices);
   free(obj->facets_coor_square);
 }
+
+int parse_file(char *filename, file_data *obj) {
+  FILE *file = fopen(filename, "r");
+  if (!file) {
+    return 1;
+  }
+  count_FV(file, obj);
+  fseek(file, 0, SEEK_SET);
+  char buff[LINE_MAX_SIZE];
+  unsigned vert_ind = 0, triangle_ind = 0, square_ind = 0;
+  obj->vertices = calloc(obj->vertices_count, sizeof(double));
+  obj->facets_coor_square = calloc(obj->square_cnt * 4, sizeof(unsigned));
+  obj->facets_coor_triangle = calloc((obj->triangle_cnt) * 3, sizeof(unsigned));
+  while (!feof(file)) {
+    fgets(buff, LINE_MAX_SIZE - 1, file);
+    right_trim(buff);
+    if (buff[0] == 'v' && buff[1] == ' ') {
+      int error = add_vertices(buff, obj, vert_ind);
+      if (error) {
+        free(obj->vertices);
+        free(obj->facets_coor_triangle);
+        free(obj->facets_coor_square);
+        fclose(file);
+        return 1;
+      }
+      vert_ind += 3;
+    } else if (buff[0] == 'f' && buff[1] == ' ') {
+      add_facets(buff, obj, &triangle_ind, &square_ind);
+    }
+  }
+  fclose(file);
+  return 0;
+}
+
+
 // TESTING
 // int main() {
 //     char *path = "cube.obj";

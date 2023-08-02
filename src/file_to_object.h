@@ -5,11 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-typedef struct coordinates {
-  double x;
-  double y;
-  double z;
-} coordinates;
 
 typedef struct file_data {
   unsigned vertices_count;
@@ -20,12 +15,20 @@ typedef struct file_data {
   double *vertices;
 } file_data;
 
-unsigned count_vert(char *arg);
+/**
+ * @brief Parse data from .obj-file to file_data-structure.
+ * 
+ * @param filename Filepath
+ * @param obj Pointer to a object of structure where to store data from file
+ * @return 1 if any error, else 0
+ */
 int parse_file(char *filename, file_data *obj);
-void count_FV(FILE *file, file_data *obj);
-int add_vertices(char *s, file_data *obj, unsigned index);
-int add_facets(char *s, file_data *obj, unsigned *triangle_ind,
-               unsigned *square_ind);
+
+/**
+ * @brief clear data from file_data-structure object
+ * 
+ * @param obj Pointer to a object of structure
+ */
 void clear_obj(file_data *obj);
 
 #endif  //  PARSER_H_
