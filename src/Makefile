@@ -19,6 +19,7 @@ gcov_report:
 
 clean:
 	rm -rf *.gc* *.o test unit_test.info test_html/ test html/ latex/ build/
+#	rm -f ~/Library/Preferences/*.viewer.plist
 
 uninstall: clean
 	rm -Rf build
@@ -27,12 +28,18 @@ install:
 	[ -d build ] || mkdir -p build
 	cd build && qmake ../Viewer
 	make -C ./build/
+	@rm $(addprefix ./build/, *.cpp *.h *.o Makefile)
 
 dist: uninstall
 	cd ../ && tar -cf Viewer.tar src
 
-run: install
-	build/Viewer.app/Contents/MacOS/./Viewer
+run: install open
+
+open:
+	open build/Viewer.app
+
+creator:
+	open Viewer/Viewer.pro
 
 beautify:
 	clang-format -i *.c *.h --style=Google

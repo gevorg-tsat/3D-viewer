@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>3DViewer 1.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="OGL" name="OGLWindow">
@@ -367,7 +367,7 @@
      <string>Parallel</string>
     </property>
     <property name="checked">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <attribute name="buttonGroup">
      <string notr="true">buttonGroup_proj_type</string>
@@ -384,6 +384,9 @@
     </property>
     <property name="text">
      <string>Central</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
     <attribute name="buttonGroup">
      <string notr="true">buttonGroup_proj_type</string>
@@ -987,11 +990,39 @@
    <header>ogl.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>spin_translate_x</tabstop>
+  <tabstop>spin_translate_y</tabstop>
+  <tabstop>spin_translate_z</tabstop>
+  <tabstop>spin_rotate_x</tabstop>
+  <tabstop>spin_rotate_y</tabstop>
+  <tabstop>spin_rotate_z</tabstop>
+  <tabstop>spin_scale</tabstop>
+  <tabstop>radioButton_projection_cent</tabstop>
+  <tabstop>radioButton_projection_par</tabstop>
+  <tabstop>pushButton_edges_color</tabstop>
+  <tabstop>radioButton_edges_solid</tabstop>
+  <tabstop>radioButton_edges_dashed</tabstop>
+  <tabstop>slider_edges_thickness</tabstop>
+  <tabstop>pushButton_vertices_color</tabstop>
+  <tabstop>radioButton_verctices_display_none</tabstop>
+  <tabstop>radioButton_verctices_display_circle</tabstop>
+  <tabstop>radioButton_verctices_display_square</tabstop>
+  <tabstop>slider_vertices_size</tabstop>
+  <tabstop>pushButton_gif_record</tabstop>
+  <tabstop>pushButton_image_save</tabstop>
+  <tabstop>pushButton_open_file</tabstop>
+  <tabstop>lineEdit_file_name</tabstop>
+  <tabstop>pushButton_background_color</tabstop>
+  <tabstop>pushButton_init_view_settings</tabstop>
+  <tabstop>lineEdit_vert_num</tabstop>
+  <tabstop>lineEdit_edges_num</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
  <buttongroups>
+  <buttongroup name="buttonGroup_edges_type"/>
   <buttongroup name="buttonGroup_vertices_display"/>
   <buttongroup name="buttonGroup_proj_type"/>
-  <buttongroup name="buttonGroup_edges_type"/>
  </buttongroups>
 </ui>
