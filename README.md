@@ -16,5 +16,9 @@ Install and Run:
 ```
 make
 ```
+Docs:
+```
+make dvi
+```
 
 
